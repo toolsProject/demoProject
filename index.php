@@ -1,2 +1,2 @@
 <?php
-echo 'welcome to tools!';die;
+echo "welcome to peteryan's tools!";die;
