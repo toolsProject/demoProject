@@ -1,21 +1,21 @@
 <ul id="nav">
-    <li class="top"><a ohref="" class="top_link"><span class="down">Batch</span></a>
+    <li class="top"><a ohref="" class="top_link"><span class="down">Tools</span></a>
         <ul class="sub">
-            <li><a href="">Add Merchant</a></li>
-            <li class="top"><a ohref="" class="fly"><span>Modify Merchant</span></a>
+            <li><a href="{$smarty.const.COMMON_ENCRYPTION_URL}">String change</a></li>
+            <li class="top"><a ohref="" class="fly"><span>demo</span></a>
                 <ul>
-                    <li class="top"><a ohref="" class="fly"><span>Config</span></a>
+                    <li class="top"><a ohref="" class="fly"><span>demo</span></a>
                         <ul>
-                            <li ><a href="">Config List</a></li>
-                            <li><a href="">Add Config</a></li>
+                            <li ><a href="">demo</a></li>
+                            <li><a href="">demo</a></li>
                         </ul>
                     </li>
-                        <li class="top"><a ohref="" class="fly"><span>Variable</span></a>
-                            <ul>
-                                <li ><a href="">Variable List</a></li>
-                                <li><a href="">Add Variable</a></li>
-                            </ul>
-                        </li>
+                    <li class="top"><a ohref="" class="fly"><span>demo</span></a>
+                        <ul>
+                            <li ><a href="">demo</a></li>
+                            <li><a href="">demo</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </li>
         </ul>

@@ -29,7 +29,7 @@ class Common {
      * @param bool $isEncryption 是否加密
      * @return string 处理后结果
      */
-    public static function stringChange($dataString = '', $isEncryption = true) {
+    public static function stringChange($dataString = '', $isEncryption = true, &$flag = false) {
         $charCodeTop = 126;
         $charCodeBottom = 33;
         $stepTop = 33;
@@ -60,14 +60,17 @@ class Common {
         $returnStr = $tmpDataString;
         $tmpDataArray = str_split($tmpDataString, 1);
         if (empty($tmpDataArray) || 3 >= count($tmpDataArray)) {
+            $flag = false;
             return $returnStr;
         } else {
             $step = intval($tmpDataArray[1]);
             if ($step < $stepBottom || $step > $stepTop) {
+                $flag = false;
                 return $returnStr;
             }
             $directTag = $tmpDataArray[2];
             if (!isset($supportDirectionArray[$directTag])) {
+                $flag = false;
                 return $returnStr;
             }
             $tmpArray = array();
@@ -88,6 +91,7 @@ class Common {
                 }
             }
             $returnStr = implode('', $tmpArray);
+            $flag = true;
             return $returnStr;
         }
     }
@@ -158,10 +162,11 @@ class Common {
             return $returnStr;
         } else {
             $cnt = intval(substr($returnStr, 0, 1));
+            $flag = false;
             for ($i = 1; $i <= $cnt; $i++) {
-                $returnStr = self::stringChange($returnStr, false);
+                $returnStr = self::stringChange($returnStr, false, $flag);
             }
-            if (strlen($returnStr) > 3) {
+            if (true === $flag) {
                 $returnStr = substr($returnStr, 3);
             } else {
                 // do nothing

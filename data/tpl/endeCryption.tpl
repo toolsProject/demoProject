@@ -5,7 +5,7 @@
     <script type="text/javascript" src="/js/jquery.js"></script>
     <link rel="stylesheet" type="text/css" href="/css/navication.css" />
     <script src="/js/navication.js" type="text/javascript"></script>
-    <script type="javascript">
+    <script language="javascript">
         commonAjaxUrl = '{$smarty.const.COMMON_AJAX_URL}';
     </script>
     {literal}
