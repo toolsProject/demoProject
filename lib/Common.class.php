@@ -92,11 +92,52 @@ class Common {
         }
     }
 
+    /**
+     * 获取加密公用前缀
+     *
+     * @return string
+     */
+    public static function obtainEncryptionPrefix() {
+        $top = 9;
+        $bottom = 1;
+        $default = 5;
+        $supportDirectionArray = array(
+            0 => 'f',
+            1 => 'b',
+        );
+        $tmp = intval(mt_rand($bottom, $top));
+        if ($tmp < $bottom || $tmp > $top) {
+            $tmp = intval($default);
+        }
+        $times = $tmp;
+        $tmp = intval(mt_rand($bottom, $top));
+        if ($tmp < $bottom || $tmp > $top) {
+            $tmp = intval($default);
+        }
+        $step = $tmp;
+        $tmp = intval(mt_rand(0, 1));
+        $direct = 'f';
+        if (isset($supportDirectionArray[$tmp])) {
+            $direct = $supportDirectionArray[$tmp];
+        } else {
+            // do nothing
+        }
+        $returnStr = "{$times}{$step}{$direct}";
+        return  $returnStr;
+    }
+
+    /**
+     * 加密字符串
+     *
+     * @param string $dataString
+     * @return string
+     */
     public static function encryptString($dataString = '') {
         $returnStr = trim($dataString);
         if (empty($returnStr)) {
             return $returnStr;
         } else {
+            $returnStr = self::obtainEncryptionPrefix() . $returnStr;
             $cnt = intval(substr($returnStr, 0, 1));
             for ($i = 1; $i <= $cnt; $i++) {
                 $returnStr = self::stringChange($returnStr, true);
@@ -105,6 +146,12 @@ class Common {
         }
     }
 
+    /**
+     * 解密字符串
+     *
+     * @param string $dataString
+     * @return string
+     */
     public static function decryptString($dataString = '') {
         $returnStr = trim($dataString);
         if (empty($returnStr)) {
@@ -121,5 +168,36 @@ class Common {
             }
             return $returnStr;
         }
+    }
+
+    /**
+     * 获取顶级域名数组
+     *
+     * @return array
+     */
+    public static function obtainTopDomain() {
+        $topDomainArray = array(
+            'com',
+            'net',
+            'org',
+            'gov',
+            'mobi',
+            'info',
+            'biz',
+            'cc',
+            'tv',
+            'asia',
+            'me',
+            'travel',
+            'tel',
+            'name',
+            'co',
+            'so',
+            'au',
+            'uk',
+            'ca',
+            'cn',
+        );
+        return $topDomainArray;
     }
 }

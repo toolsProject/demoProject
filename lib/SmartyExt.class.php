@@ -7,10 +7,10 @@ class SmartyExt extends Smarty {
         if (!empty($tplDir) && substr($tplDir, 0, 1) != ''/'') {
             $tplDir = INCLUDE_DATA_ROOT . $tplDir;
         }
-        $templateDir = $tplDir ? $tplDir : INCLUDE_DATA_ROOT . 'tpl';
+        $templateDir = !empty($tplDir) ? $tplDir : INCLUDE_DATA_ROOT . 'tpl';
         $compileDir = INCLUDE_DATA_ROOT . 'smarty/smarty_c/' . $project;
         $cacheDir = INCLUDE_DATA_ROOT . 'smarty/smarty_cache/' . $project;
-        $configDir = $configDir ? $configDir : $this->template_dir;
+        $configDir = !empty($configDir) ? $configDir : $templateDir;
         $this->setTemplateDir($templateDir)->setCompileDir($compileDir)->setCacheDir($cacheDir)->setConfigDir($configDir);
 
         $this->config_booleanize = false;
