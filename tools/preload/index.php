@@ -120,21 +120,7 @@
         'https://n.codespromofr.com/images/banner/b149386642891.jpg'
     ];
     var index = 0,
-        length = images.length,
-        count = 0;
-//    $.each(images, function (i, src) {
-//        imgObj = new Image();
-//        $(imgObj).on('load error', function () {
-//            count++;
-//            progress = Math.round(count / length * 100) + '%';
-//            $('.progress-bar').attr('style', 'width: ' + progress);
-//            $('.progress-bar').html(progress);
-//            if (count >= length) {
-//                $('.loading').hide();
-//            }
-//        });
-//        imgObj.src = src;
-//    });
+        length = images.length;
     $.preload(images, {
         each : function (count, length) {
             progress = Math.round(count / length * 100) + '%';
@@ -143,7 +129,8 @@
         },
         all : function () {
             $('.loading').hide();
-        }
+        },
+        order : 'unorder'
     });
 
     $('.prompt').html(index + 1 + '/' + length);
