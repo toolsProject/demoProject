@@ -182,27 +182,10 @@ class Common {
      */
     public static function obtainTopDomain() {
         $topDomainArray = array(
-            'com',
-            'net',
-            'org',
-            'gov',
-            'mobi',
-            'info',
-            'biz',
-            'cc',
-            'tv',
-            'asia',
-            'me',
-            'travel',
-            'tel',
-            'name',
-            'co',
-            'so',
-            'au',
-            'uk',
-            'ca',
-            'cn',
-        );
+            'com', 'net','org','gov','mobi','info','biz','cc',
+            'tv','asia','me','travel','tel','name','co','so',
+            'au','uk','ca','cn',
+            );
         return $topDomainArray;
     }
 }
