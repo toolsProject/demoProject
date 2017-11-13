@@ -8,7 +8,14 @@ $whoops = new Run();
 $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
 $whoops->register();
 
-$cache = CacheManager::Memcached();
+//$cache = CacheManager::Memcached();
+
+$cache = CacheManager::getInstance('memcached', ['servers' => [
+    [
+        'host' =>'localhost',
+        'port' => 11211,
+    ],
+]]);
 
 $keyword_webpage = md5($_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'].$_SERVER['QUERY_STRING']);
 // try to get from Cache first.
