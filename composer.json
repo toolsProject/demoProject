@@ -2,7 +2,8 @@
     "name": "peter/tools",
     "description": "self tools",
     "require": {
-        "filp/whoops": "2.1.10"
+        "filp/whoops": "2.1.10",
+        "phpfastcache/phpfastcache": "6.0.5"
     },
     "authors": [
         {

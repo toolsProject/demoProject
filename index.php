@@ -1,2 +1,3 @@
 <?php
-echo "welcome to peteryan's tools!";die;
+echo "welcome to peteryan's tools!";
+phpinfo();
